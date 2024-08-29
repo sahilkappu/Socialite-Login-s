@@ -1,66 +1,108 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Socialite Login
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+This project demonstrates how to implement social login functionality in a Laravel application using Laravel Socialite. It supports Google, GitHub, and Facebook login providers.
 
-## About Laravel
+## Requirements
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+-   Laravel 11.21
+-   Laravel/UI with React Auth Package
+-   Laravel Socialite
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Installation
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+1. **Clone the Repository**
 
-## Learning Laravel
+    ```bash
+    git clone https://github.com/sahilkappu/Socialite-Login-s.git
+    cd Socialite-Login-s
+    ```
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+2. **Install Dependencies**
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+    Make sure you have Composer and npm installed. Run the following commands to install the required PHP and JavaScript dependencies:
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+    ```bash
+    composer install
+    npm install
+    ```
 
-## Laravel Sponsors
+3. **Set Up Environment**
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+    Copy the `.env.example` file to a new `.env` file and update the environment variables as needed:
 
-### Premium Partners
+    ```bash
+    cp .env.example .env
+    ```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+    Generate an application key:
+
+    ```bash
+    php artisan key:generate
+    ```
+
+4. **Configure Socialite**
+
+    You need to set up your social login credentials for Google, GitHub, and Facebook in your `.env` file. You can obtain these credentials by creating applications on the respective platforms' developer portals.
+
+    Add the following to your `.env` file:
+
+    ```env
+    GOOGLE_CLIENT_ID=your-google-client-id
+    GOOGLE_CLIENT_SECRET=your-google-client-secret
+    GOOGLE_REDIRECT=https://your-domain.com/auth/google/callback
+
+    GITHUB_CLIENT_ID=your-github-client-id
+    GITHUB_CLIENT_SECRET=your-github-client-secret
+    GITHUB_REDIRECT=https://your-domain.com/auth/github/callback
+
+    FACEBOOK_CLIENT_ID=your-facebook-client-id
+    FACEBOOK_CLIENT_SECRET=your-facebook-client-secret
+    FACEBOOK_REDIRECT=https://your-domain.com/auth/facebook/callback
+    ```
+
+5. **Set Up Socialite**
+
+    Install the Laravel Socialite package using Composer:
+
+    ```bash
+    composer require laravel/socialite
+    ```
+
+6. **Run Migrations**
+
+    Make sure your database is set up and run the migrations:
+
+    ```bash
+    php artisan migrate
+    ```
+
+7. **Set Up Routes and Controllers**
+
+    Define routes and create controllers for handling authentication. You can follow the implementation details in the `routes/web.php` and `app/Http/Controllers` directories.
+
+8. **Build and Serve**
+
+    Build your frontend assets and serve the application:
+
+    ```bash
+    npm run dev
+    php artisan serve
+    ```
+
+    Visit `http://localhost:8000` in your browser to see the application.
+
+## Usage
+
+Once your setup is complete, users will be able to log in using their Google, GitHub, or Facebook accounts. The authentication flow will redirect them to the appropriate social provider's login page, and upon successful authentication, they will be redirected back to your application.
 
 ## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+If you have any improvements or fixes, feel free to submit a pull request. Please make sure to follow the coding standards and test your changes before submitting.
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+---
+
+Feel free to customize this README further based on your project's specifics and any additional instructions you want to include.
