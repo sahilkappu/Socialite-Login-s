@@ -1,12 +1,15 @@
 # Socialite Login
 
-This project demonstrates how to implement social login functionality in a Laravel application using Laravel Socialite. It supports Google, GitHub, and Facebook login providers.
+This project demonstrates how to implement social login functionality in a Laravel application using Laravel Socialite. It supports Google and GitHub login providers.
 
 ## Requirements
 
 -   Laravel 11.21
 -   Laravel/UI with React Auth Package
 -   Laravel Socialite
+-   PHP 8.2.19 or higher
+-   Composer
+-   MySQL or any other supported database
 
 ## Installation
 
@@ -42,7 +45,7 @@ This project demonstrates how to implement social login functionality in a Larav
 
 4. **Configure Socialite**
 
-    You need to set up your social login credentials for Google, GitHub, and Facebook in your `.env` file. You can obtain these credentials by creating applications on the respective platforms' developer portals.
+    You need to set up your social login credentials for Google and GitHub in your `.env` file. You can obtain these credentials by creating applications on the respective platforms' developer portals.
 
     Add the following to your `.env` file:
 
@@ -55,9 +58,6 @@ This project demonstrates how to implement social login functionality in a Larav
     GITHUB_CLIENT_SECRET=your-github-client-secret
     GITHUB_REDIRECT=https://your-domain.com/auth/github/callback
 
-    FACEBOOK_CLIENT_ID=your-facebook-client-id
-    FACEBOOK_CLIENT_SECRET=your-facebook-client-secret
-    FACEBOOK_REDIRECT=https://your-domain.com/auth/facebook/callback
     ```
 
 5. **Set Up Socialite**
@@ -93,7 +93,7 @@ This project demonstrates how to implement social login functionality in a Larav
 
 ## Usage
 
-Once your setup is complete, users will be able to log in using their Google, GitHub, or Facebook accounts. The authentication flow will redirect them to the appropriate social provider's login page, and upon successful authentication, they will be redirected back to your application.
+Once your setup is complete, users will be able to log in using their Google or GitHub accounts. The authentication flow will redirect them to the appropriate social provider's login page, and upon successful authentication, they will be redirected back to your application.
 
 ## Contributing
 
